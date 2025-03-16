@@ -1,3 +1,3 @@
 # studhue_draft
 
-A new Flutter project.
+Version 0.0.1.
