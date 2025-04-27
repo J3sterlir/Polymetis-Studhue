@@ -14,10 +14,7 @@ class LoginScreen1 extends StatelessWidget {
         children: [
           // Background Image
           Positioned.fill(
-            child: Image.asset(
-              "graphics/Background.png",
-              fit: BoxFit.cover,
-            ),
+            child: Image.asset("graphics/Background.png", fit: BoxFit.cover),
           ),
 
           Center(
@@ -25,10 +22,7 @@ class LoginScreen1 extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 // Logo
-                Image.asset(
-                  'graphics/Logo B.png',
-                  width: 250,
-                ),
+                Image.asset('graphics/Logo B.png', width: 250),
 
                 const SizedBox(height: 20),
 
@@ -52,9 +46,17 @@ class LoginScreen1 extends StatelessWidget {
                 // Box around buttons
                 Container(
                   width: 320,
-                  padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 20,
+                    horizontal: 15,
+                  ),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.2), // Semi-transparent box
+                    color: const Color.fromARGB(
+                      162,
+                      255,
+                      255,
+                      255,
+                    ), // Semi-transparent box
                     borderRadius: BorderRadius.circular(18),
                   ),
                   child: Column(
@@ -63,10 +65,9 @@ class LoginScreen1 extends StatelessWidget {
                       SizedBox(
                         width: double.infinity,
                         height: 50,
-                        child: ElevatedButton(
-                          onPressed: () {
+                        child: ElevatedButton(onPressed: () {Navigator.pushNamed(context, "/log");
+                              },
                             // Handle login action
-                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color(0xFF0792CD),
                             shape: RoundedRectangleBorder(
@@ -116,10 +117,9 @@ class LoginScreen1 extends StatelessWidget {
                       SizedBox(
                         width: double.infinity,
                         height: 50,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            // Navigate to sign up screen
-                          },
+                        child: ElevatedButton(onPressed: ()  // Navigate to sign up screen
+                        {Navigator.pushNamed(context, "/signup");}
+                          ,
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color(0xFFDA0590),
                             shape: RoundedRectangleBorder(
