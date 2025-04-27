@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'splash_screen.dart';
-import 'welcome_screen.dart';
-import 'login_screen1.dart';
-import 'login_screen2.dart';
-import 'signup_screen.dart';
-import 'home_screen.dart';
+import 'package:studhue_draft/splash_screen.dart';
+import 'package:studhue_draft/welcome_screen.dart';
+import 'package:studhue_draft/login_screen1.dart';
+import 'package:studhue_draft/login_screen2.dart';
+import 'package:studhue_draft/signup_screen.dart';
+import 'package:studhue_draft/home_screen.dart';
+import 'package:studhue_draft/artvault_screen.dart';
+import 'package:studhue_draft/notifications_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,12 +24,14 @@ class MyApp extends StatelessWidget {
       // Set initial screen
       initialRoute: '/',
       routes: {
-        '/': (context) => const SplashScreen(),
+        '/': (context) => const NotificationScreen(),
         '/welcome': (context) => const WelcomeScreen(),
         '/login': (context) => const LoginScreen1(),
         '/log': (context) => const LoginScreen2(),
         '/signup': (context) => const SignUpScreen(),
         '/home': (context) => const HomeScreen(),
+        '/vault': (context) => const ArtVault(),
+        '/notifications': (context) => const NotificationScreen(),
         //SplashScreen
       },
     );

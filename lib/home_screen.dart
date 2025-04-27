@@ -84,7 +84,7 @@ class HomeScreen extends StatelessWidget {
               ),
               IconButton(
                 icon: const Icon(Icons.favorite_border),
-                onPressed: () {},
+                onPressed: () {Navigator.pushNamed(context, "/vault");},
               ),
               IconButton(
                 icon: const Icon(Icons.person_outline),
