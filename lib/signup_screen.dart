@@ -8,17 +8,14 @@ class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
         children: [
           // Background Image
           Positioned.fill(
-            child: Image.asset(
-              'graphics/Background.png',
-              fit: BoxFit.cover,
-            ),
+            child: Image.asset('graphics/Background.png', fit: BoxFit.cover),
           ),
 
           // Main Content
@@ -48,7 +45,12 @@ class SignUpScreen extends StatelessWidget {
                   width: 357,
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.2), // Semi-transparent background
+                    color: const Color.fromARGB(
+                      148,
+                      255,
+                      255,
+                      255,
+                    ), // Semi-transparent background
                     borderRadius: BorderRadius.circular(13),
                   ),
                   child: Column(
@@ -112,6 +114,20 @@ class SignUpScreen extends StatelessWidget {
               ],
             ),
           ),
+          // Back Button
+          Positioned(
+            top: 21,
+            left: 20,
+            child: IconButton(
+              icon: Image.asset(
+                'graphics/back_button.png',
+                width: 29,
+                height: 29,
+              ),
+              onPressed: ()  {Navigator.pushNamed(context, "/login");},
+              // Handle back button press
+            ),
+          ),
         ],
       ),
     );
@@ -131,7 +147,10 @@ class SignUpScreen extends StatelessWidget {
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(color: Colors.white),
         ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 10,
+          vertical: 12,
+        ),
       ),
     );
   }

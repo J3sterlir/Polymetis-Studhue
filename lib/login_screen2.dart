@@ -15,10 +15,7 @@ class LoginScreen2 extends StatelessWidget {
         children: [
           // Background Image
           Positioned.fill(
-            child: Image.asset(
-              'graphics/Background.png',
-              fit: BoxFit.cover,
-            ),
+            child: Image.asset('graphics/Background.png', fit: BoxFit.cover),
           ),
 
           // Main Content
@@ -46,9 +43,17 @@ class LoginScreen2 extends StatelessWidget {
                 // Login Box
                 Container(
                   width: 357,
-                  padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 30,
+                    horizontal: 20,
+                  ),
                   decoration: BoxDecoration(
-                    color: const Color(0xFFFFFFFF).withOpacity(0.2), // Semi-transparent background
+                    color: const Color.fromARGB(
+                      169,
+                      255,
+                      255,
+                      255,
+                    ), // Semi-transparent background
                     borderRadius: BorderRadius.circular(13),
                     boxShadow: const [
                       BoxShadow(
@@ -62,30 +67,30 @@ class LoginScreen2 extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       // Title
-                    const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Log In',
-                          style: TextStyle(
-                            fontSize: 28,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'NirmalaUI',
+                      const Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Log In',
+                            style: TextStyle(
+                              fontSize: 28,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'NirmalaUI',
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 5), // Small gap between texts
-                        Text(
-                          'Welcome Back!',
-                          style: TextStyle(
-                            fontSize: 18, // Smaller font size
-                            color: Colors.white,
-                            fontWeight: FontWeight.normal, // Normal weight
-                            fontFamily: 'NirmalaUI',
+                          SizedBox(height: 5), // Small gap between texts
+                          Text(
+                            'Welcome Back!',
+                            style: TextStyle(
+                              fontSize: 18, // Smaller font size
+                              color: Colors.white,
+                              fontWeight: FontWeight.normal, // Normal weight
+                              fontFamily: 'NirmalaUI',
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
+                        ],
+                      ),
 
                       const SizedBox(height: 25),
 
@@ -116,9 +121,8 @@ class LoginScreen2 extends StatelessWidget {
                         width: double.infinity,
                         height: 45,
                         child: ElevatedButton(
-                          onPressed: () {
-                            // Handle login action
-                          },
+                          // Handle login action
+                          onPressed: () {Navigator.pushNamed(context, "/home");},
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFF0792CD),
                             shape: RoundedRectangleBorder(
@@ -148,10 +152,13 @@ class LoginScreen2 extends StatelessWidget {
             top: 21,
             left: 20,
             child: IconButton(
-              icon: Image.asset('graphics/back_button.png', width: 29, height: 29),
-              onPressed: () {
+              icon: Image.asset(
+                'graphics/back_button.png',
+                width: 29,
+                height: 29,
+              ),
+              onPressed: ()  {Navigator.pushNamed(context, "/login");},
                 // Handle back button press
-              },
             ),
           ),
         ],
@@ -174,9 +181,10 @@ class LoginScreen2 extends StatelessWidget {
           hintText: hint,
           hintStyle: const TextStyle(color: Colors.white70, fontSize: 15),
           border: InputBorder.none,
-          suffixIcon: isPassword
-              ? const Icon(Icons.visibility, color: Colors.white70)
-              : null,
+          suffixIcon:
+              isPassword
+                  ? const Icon(Icons.visibility, color: Colors.white70)
+                  : null,
         ),
       ),
     );

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:studhue_draft/splash_screen.dart';
-import 'package:studhue_draft/welcome_screen.dart';
-import 'package:studhue_draft/login_screen1.dart';
-import 'package:studhue_draft/login_screen2.dart';
-import 'package:studhue_draft/signup_screen.dart';
-import 'package:studhue_draft/home_screen.dart';
+import 'splash_screen.dart';
+import 'welcome_screen.dart';
+import 'login_screen1.dart';
+import 'login_screen2.dart';
+import 'signup_screen.dart';
+import 'home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,9 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'StudHue',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       // Set initial screen
       initialRoute: '/',
       routes: {
