@@ -5,6 +5,10 @@ import 'login_screen1.dart';
 import 'login_screen2.dart';
 import 'signup_screen.dart';
 import 'home_screen.dart';
+import 'artvault_screen.dart';
+import 'notifications_screen.dart';
+import 'pinboards.dart';
+import 'profile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,6 +32,10 @@ class MyApp extends StatelessWidget {
         '/log': (context) => const LoginScreen2(),
         '/signup': (context) => const SignUpScreen(),
         '/home': (context) => const HomeScreen(),
+        '/vault': (context) => const ArtVault(),
+        '/profile': (context) => const ProfileScreen(),
+        '/pinboards': (context) => const PinboardsScreen(),
+        '/notifications': (context) => const NotificationScreen(),
         //SplashScreen
       },
     );

@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Art Social App',
+      title: 'Stud Hue',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -20,8 +20,21 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  HomeScreenState createState() => HomeScreenState();
+}
+
+class HomeScreenState extends State<HomeScreen> {
+  bool _isSearchBarVisible = false;
+
+  void _toggleSearchBar() {
+    setState(() {
+      _isSearchBarVisible = !_isSearchBarVisible;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +43,14 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        title: const SearchBar(),
+        title: _isSearchBarVisible ? const SearchBar() : Image.asset('graphics/Homeheader.png',height: 32),
         automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: _toggleSearchBar,
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -76,19 +95,19 @@ class HomeScreen extends StatelessWidget {
               ),
               IconButton(
                 icon: const Icon(Icons.search),
-                onPressed: () {},
+                onPressed: _toggleSearchBar,
               ),
               IconButton(
                 icon: const Icon(Icons.add_box_outlined),
                 onPressed: () {},
               ),
               IconButton(
-                icon: const Icon(Icons.favorite_border),
-                onPressed: () {},
+                icon: const Icon(Icons.developer_board_rounded),
+                onPressed: () { Navigator.pushNamed(context, "/vault"); },
               ),
               IconButton(
                 icon: const Icon(Icons.person_outline),
-                onPressed: () {},
+                onPressed: () { Navigator.pushNamed(context, "/profile"); },
               ),
             ],
           ),
