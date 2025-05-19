@@ -9,6 +9,19 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final List<String> postImages = [
+    'graphics/profile posts/post1.jpg',
+    'graphics/profile posts/post2.jpg',
+    'graphics/profile posts/post3.jpg',
+    'graphics/profile posts/post4.jpg',
+    'graphics/profile posts/post5.jpg',
+    'graphics/profile posts/post6.jpg',
+    'graphics/profile posts/post7.jpg',
+    'graphics/profile posts/post8.jpg',
+    'graphics/profile posts/post9.jpg',
+  ];
+
     return DefaultTabController(
       length: 2, // Posts and Products tabs
       child: Scaffold(
@@ -120,15 +133,19 @@ class ProfileScreen extends StatelessWidget {
                     // Posts Tab
                     GridView.builder(
                       padding: const EdgeInsets.all(10),
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3,
-                            crossAxisSpacing: 5,
-                            mainAxisSpacing: 5,
-                          ),
-                      itemBuilder:
-                          (context, index) =>
-                              Container(color: Colors.grey.shade300),
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        crossAxisSpacing: 5,
+                        mainAxisSpacing: 5,
+                      ),
+                      itemCount: postImages.length,
+                      itemBuilder: (context, index) => ClipRRect(
+                        borderRadius: BorderRadius.circular(8),
+                        child: Image.asset(
+                          postImages[index],
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
 
                     // Products Tab
