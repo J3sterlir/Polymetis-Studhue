@@ -43,7 +43,9 @@ class HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        title: _isSearchBarVisible ? const SearchBar() : Image.asset('graphics/Homeheader.png',height: 32),
+        title: _isSearchBarVisible
+            ? const SearchBar()
+            : Image.asset('graphics/Homeheader.png', height: 32),
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
@@ -52,70 +54,96 @@ class HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            _buildPost(
-              username: 'Joerizzle',
-              profession: 'Stained Glass Artist',
-              isVerified: true,
-              verifiedOffset: 128,
-              postImagePath: 'graphics/feed posts/fpost4.jpg'
+      body: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 70), // space for nav bar
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: [
+                _buildPost(
+                  username: 'Joerizzle',
+                  profession: 'Stained Glass Artist',
+                  isVerified: true,
+                  verifiedOffset: 128,
+                  postImagePath: 'graphics/feed posts/fpost4.jpg',
+                  iconPath: 'graphics/icons/icon3.png',
+                ),
+                _buildPost(
+                  username: 'BIBIMBAP',
+                  profession: 'Digital Artist',
+                  isVerified: true,
+                  verifiedOffset: 134,
+                  postImagePath: 'graphics/feed posts/fpost1.jpg',
+                  iconPath: 'graphics/icons/icon11.png',
+                ),
+                _buildPost(
+                  username: 'Mona_Liz',
+                  profession: 'Traditional Painter',
+                  isVerified: true,
+                  verifiedOffset: 130,
+                  postImagePath: 'graphics/feed posts/fpost2.jpg',
+                  iconPath: 'graphics/icons/icon7.png',
+                ),
+                _buildPost(
+                  username: 'Dreamweaver',
+                  profession: 'Crochet Artist',
+                  isVerified: true,
+                  verifiedOffset: 128,
+                  postImagePath: 'graphics/feed posts/fpost3.jpg',
+                  iconPath: 'graphics/icons/icon9.png',
+                ),
+              ],
             ),
-            _buildPost(
-              username: 'BIBIMBAP',
-              profession: 'Digital Artist',
-              isVerified: true,
-              verifiedOffset: 134,
-              postImagePath: 'graphics/feed posts/fpost1.jpg'
-            ),
-            _buildPost(
-              username: 'Mona_Liz',
-              profession: 'Traditional Painter',
-              isVerified: true,
-              verifiedOffset: 130,
-              postImagePath: 'graphics/feed posts/fpost2.jpg'
-            ),
-            _buildPost(
-              username: 'Dreamweaver',
-              profession: 'Crochet Artist',
-              isVerified: true,
-              verifiedOffset: 128,
-              postImagePath: 'graphics/feed posts/fpost3.jpg'
-            ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        child: Container(
-          height: 60,
-          color: Colors.white,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              IconButton(
-                icon: const Icon(Icons.home),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: const Icon(Icons.search),
-                onPressed: _toggleSearchBar,
-              ),
-              IconButton(
-                icon: const Icon(Icons.add_box_outlined),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: const Icon(Icons.developer_board_rounded),
-                onPressed: () { Navigator.pushNamed(context, "/vault"); },
-              ),
-              IconButton(
-                icon: const Icon(Icons.person_outline),
-                onPressed: () { Navigator.pushNamed(context, "/profile"); },
-              ),
-            ],
           ),
-        ),
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: Container(
+              height: 60,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 10,
+                    offset: const Offset(0, -2),
+                  ),
+                ],
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.home),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.search),
+                    onPressed: _toggleSearchBar,
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.add_box_outlined),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.developer_board_rounded),
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/vault");
+                    },
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.person_outline),
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/profile");
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -126,6 +154,7 @@ class HomeScreenState extends State<HomeScreen> {
     required bool isVerified,
     required double verifiedOffset,
     required String postImagePath,
+    required String iconPath,
   }) {
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
@@ -135,7 +164,7 @@ class HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 8),
             child: Row(
               children: [
-                Image.asset('graphics/Profile Icon.png', width: 43, height: 43,),
+                Image.asset(iconPath, width: 43, height: 43,),
                 const SizedBox(width: 10),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
