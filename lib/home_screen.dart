@@ -57,27 +57,31 @@ class HomeScreenState extends State<HomeScreen> {
           children: [
             _buildPost(
               username: 'Joerizzle',
-              profession: 'Digital Artist',
+              profession: 'Stained Glass Artist',
               isVerified: true,
               verifiedOffset: 128,
+              postImagePath: 'graphics/feed posts/fpost4.jpg'
             ),
             _buildPost(
               username: 'BIBIMBAP',
-              profession: 'Potter',
+              profession: 'Digital Artist',
               isVerified: true,
               verifiedOffset: 134,
+              postImagePath: 'graphics/feed posts/fpost1.jpg'
             ),
             _buildPost(
               username: 'Mona_Liz',
               profession: 'Traditional Painter',
               isVerified: true,
               verifiedOffset: 130,
+              postImagePath: 'graphics/feed posts/fpost2.jpg'
             ),
             _buildPost(
-              username: 'Joerizzle',
-              profession: 'Digital Artist',
+              username: 'Dreamweaver',
+              profession: 'Crochet Artist',
               isVerified: true,
               verifiedOffset: 128,
+              postImagePath: 'graphics/feed posts/fpost3.jpg'
             ),
           ],
         ),
@@ -121,6 +125,7 @@ class HomeScreenState extends State<HomeScreen> {
     required String profession,
     required bool isVerified,
     required double verifiedOffset,
+    required String postImagePath,
   }) {
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
@@ -163,9 +168,11 @@ class HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          Container(
+          Image.asset(
+            postImagePath,
             height: 393,
-            color: Colors.grey,
+            width: double.infinity,
+            fit: BoxFit.cover,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),

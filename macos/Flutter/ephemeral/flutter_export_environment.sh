@@ -3,7 +3,6 @@
 export "FLUTTER_ROOT=C:\Users\Forchieanne\Documents\Node_Demo\Node_Demo\views\flutter"
 export "FLUTTER_APPLICATION_PATH=C:\Flutter\Flutter Projects\studhue\studhue_draft"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
-export "FLUTTER_TARGET=lib\main.dart"
 export "FLUTTER_BUILD_DIR=build"
 export "FLUTTER_BUILD_NAME=0.1.0"
 export "FLUTTER_BUILD_NUMBER=0.1.0"
