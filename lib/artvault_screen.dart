@@ -48,7 +48,8 @@ class _ArtVaultState extends State<ArtVault> {
               productname: 'Crochet Bag',
               variation: 'small',
               quantity: quantity,
-              price: 100.00,
+              price: 150.00,
+              imagePath: 'graphics/products/product1.jpg',
               onQuantityChanged: (newQuantity) {
                 setState(() {
                   quantity = newQuantity;
@@ -57,10 +58,11 @@ class _ArtVaultState extends State<ArtVault> {
             ),
             _buildCart(
               username: 'BIBIMBAP',
-              productname: 'Crochet Bag',
+              productname: 'Clay Hippers',
               variation: 'small',
               quantity: quantity,
               price: 100.00,
+              imagePath: 'graphics/products/product2.jpg',
               onQuantityChanged: (newQuantity) {
                 setState(() {
                   quantity = newQuantity;
@@ -69,10 +71,11 @@ class _ArtVaultState extends State<ArtVault> {
             ),
             _buildCart(
               username: 'BIBIMBAP',
-              productname: 'Crochet Bag',
-              variation: 'small',
+              productname: 'Keychains',
+              variation: 'Calcifier',
               quantity: quantity,
-              price: 100.00,
+              price: 85.00,
+              imagePath: 'graphics/products/product3.jpg',
               onQuantityChanged: (newQuantity) {
                 setState(() {
                   quantity = newQuantity;
@@ -81,10 +84,11 @@ class _ArtVaultState extends State<ArtVault> {
             ),
             _buildCart(
               username: 'BIBIMBAP',
-              productname: 'Crochet Bag',
-              variation: 'small',
+              productname: 'Resin Coaster',
+              variation: 'Bunny-Medium',
               quantity: quantity,
-              price: 100.00,
+              price: 150.00,
+              imagePath: 'graphics/products/product4.jpg',
               onQuantityChanged: (newQuantity) {
                 setState(() {
                   quantity = newQuantity;
@@ -93,10 +97,11 @@ class _ArtVaultState extends State<ArtVault> {
             ),
             _buildCart(
               username: 'BIBIMBAP',
-              productname: 'Crochet Bag',
+              productname: 'Simple Vase',
               variation: 'small',
               quantity: quantity,
-              price: 100.00,
+              price: 175.00,
+              imagePath: 'graphics/products/product5.jpg',
               onQuantityChanged: (newQuantity) {
                 setState(() {
                   quantity = newQuantity;
@@ -105,10 +110,11 @@ class _ArtVaultState extends State<ArtVault> {
             ),
             _buildCart(
               username: 'BIBIMBAP',
-              productname: 'Crochet Bag',
-              variation: 'small',
+              productname: 'Bunbun Stickers',
+              variation: 'Pack-A',
               quantity: quantity,
               price: 100.00,
+              imagePath: 'graphics/products/product6.jpg',
               onQuantityChanged: (newQuantity) {
                 setState(() {
                   quantity = newQuantity;
@@ -117,10 +123,11 @@ class _ArtVaultState extends State<ArtVault> {
             ),
             _buildCart(
               username: 'BIBIMBAP',
-              productname: 'Crochet Bag',
-              variation: 'small',
+              productname: 'Butterfly Painting',
+              variation: '10x10',
               quantity: quantity,
-              price: 100.00,
+              price: 250.00,
+              imagePath: 'graphics/products/product7.jpg',
               onQuantityChanged: (newQuantity) {
                 setState(() {
                   quantity = newQuantity;
@@ -172,6 +179,7 @@ Widget _buildCart({
   required String variation,
   required int quantity,
   required double price,
+  required String imagePath,
   required ValueChanged<int> onQuantityChanged,
 }) {
   return Container(
@@ -279,14 +287,17 @@ Widget _buildCart({
                   width: 65,
                   top: 7,
                   height: 66.182,
-                  child: Container(
+                  child: SizedBox(
                     width: 65,
                     height: 66.182,
-                    decoration: BoxDecoration(
-                      color: const Color(0xffd9d9d9),
+                    child: ClipRRect(
                       borderRadius: BorderRadius.circular(5),
+                      child: Image.asset(
+                        imagePath,
+                        fit: BoxFit.cover,
                       ),
                     ),
+                   ),
                  ),
                 Positioned(
                   left: 131,

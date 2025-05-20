@@ -37,48 +37,61 @@ class NotificationScreen extends StatelessWidget {
         child: Column(
           children: [
             _buildNotifLike(
-              username:'BIBIMBAP',
+              username:'Baching',
+              iconPath: 'graphics/icons/icon2.jpg',
             ),
             _buildNotif(
-              username:'BIBIMBAP',
-              comment: 'Picasso would be proud of...'
+              username:'Baching',
+              comment: 'Picasso would be proud of...',
+              iconPath: 'graphics/icons/icon2.jpg',
             ),
             _buildNotif(
               username:'Haizzle',
-              comment: 'What medium did you use...'
+              comment: 'What medium did you use...',
+              iconPath: 'graphics/icons/icon3.jpg',
             ),
             _buildNotifLike(
               username:'Papricart',
+              iconPath: 'graphics/icons/icon4.jpg',
             ),
             _buildNotif(
               username:'Papricart',
-              comment: 'The details are detailing!'
+              comment: 'The details are detailing!',
+              iconPath: 'graphics/icons/icon4.jpg',
             ),
             _buildNotifLike(
               username:'Fufi',
+              iconPath: 'graphics/icons/icon5.jpg',
             ),
             _buildNotifLike(
               username:'Zeon',
+              iconPath: 'graphics/icons/icon6.jpg',
             ),
             _buildNotif(
               username:'Zeon',
-              comment: 'Peter how are you doin dat'
+              comment: 'Peter how are you doin dat',
+              iconPath: 'graphics/icons/icon6.jpg',
             ),
             _buildNotif(
               username:'Rizzle',
-              comment: 'What yarn did you use?'
+              comment: 'What yarn did you use?',
+              iconPath: 'graphics/icons/icon7.jpg',
             ),
             _buildNotifLike(
               username:'Rui-chin',
+              iconPath: 'graphics/icons/icon8.jpg',
             ),
             _buildNotifLike(
               username:'Tannerp',
+              iconPath: 'graphics/icons/icon9.jpg',
             ),
             _buildNotifLike(
               username:'MeiMei',
+              iconPath: 'graphics/icons/icon10.jpg',
             ),
             _buildNotifLike(
               username:'Manong Edgar',
+              iconPath: 'graphics/icons/icon11.jpg',
             ),
           ]
         )
@@ -90,6 +103,7 @@ class NotificationScreen extends StatelessWidget {
 Widget _buildNotif({
     required String username,
     String comment= '',
+    required String iconPath,
 }) {
     return Container(
       color: Colors.white,
@@ -106,18 +120,12 @@ Widget _buildNotif({
               child: Stack(
                 children: [
                   Positioned(
-                    left: 0,
-                    width: 393,
-                    top: 0,
-                    height: 82,
-                    child: Container(
-                      width: 393,
-                      height: 82,
-                      decoration: BoxDecoration(
-                        color: const Color(0xfffffdfd),
+                        left: 26,
+                        width: 43,
+                        top: 19,
+                        height: 43,
+                        child: Image.asset(iconPath, width: 43, height: 43),
                       ),
-                    ),
-                  ),
                   Positioned(
                     left: 81,
                     top: 42,
@@ -187,6 +195,7 @@ Widget _buildNotif({
 
 Widget _buildNotifLike({
     required String username,
+    required String iconPath,
 }) {
     return Container(
       color: Colors.white,
@@ -328,7 +337,7 @@ Widget _buildNotifLike({
                         style: TextStyle(
                           decoration: TextDecoration.none,
                           fontSize: 20,
-                          color: const Color(0xff000000),
+                          color: const Color.fromARGB(255, 255, 255, 255),
                           fontFamily: 'Inter-Bold',
                           fontWeight: FontWeight.bold,
                         ),
