@@ -81,6 +81,19 @@ flutter:
     - graphics/Typography.png
     - graphics/Verified Icon.png
     - graphics/Homeheader.png
+    - graphics/feed posts/fpost1.jpg
+    - graphics/feed posts/fpost2.jpg
+    - graphics/feed posts/fpost3.jpg
+    - graphics/feed posts/fpost4.jpg
+    - graphics/profile posts/post1.jpg
+    - graphics/profile posts/post2.jpg
+    - graphics/profile posts/post3.jpg
+    - graphics/profile posts/post4.jpg
+    - graphics/profile posts/post5.jpg
+    - graphics/profile posts/post6.jpg
+    - graphics/profile posts/post7.jpg
+    - graphics/profile posts/post8.jpg
+    - graphics/profile posts/post9.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
