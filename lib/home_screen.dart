@@ -67,7 +67,7 @@ class HomeScreenState extends State<HomeScreen> {
                   isVerified: true,
                   verifiedOffset: 128,
                   postImagePath: 'graphics/feed posts/fpost4.jpg',
-                  iconPath: 'graphics/icons/icon3.png',
+                  iconPath: 'graphics/icons/icon3.jpg',
                 ),
                 _buildPost(
                   username: 'BIBIMBAP',
@@ -75,7 +75,7 @@ class HomeScreenState extends State<HomeScreen> {
                   isVerified: true,
                   verifiedOffset: 134,
                   postImagePath: 'graphics/feed posts/fpost1.jpg',
-                  iconPath: 'graphics/icons/icon11.png',
+                  iconPath: 'graphics/icons/icon11.jpg',
                 ),
                 _buildPost(
                   username: 'Mona_Liz',
@@ -83,7 +83,7 @@ class HomeScreenState extends State<HomeScreen> {
                   isVerified: true,
                   verifiedOffset: 130,
                   postImagePath: 'graphics/feed posts/fpost2.jpg',
-                  iconPath: 'graphics/icons/icon7.png',
+                  iconPath: 'graphics/icons/icon7.jpg',
                 ),
                 _buildPost(
                   username: 'Dreamweaver',
@@ -91,7 +91,7 @@ class HomeScreenState extends State<HomeScreen> {
                   isVerified: true,
                   verifiedOffset: 128,
                   postImagePath: 'graphics/feed posts/fpost3.jpg',
-                  iconPath: 'graphics/icons/icon9.png',
+                  iconPath: 'graphics/icons/icon9.jpg',
                 ),
               ],
             ),

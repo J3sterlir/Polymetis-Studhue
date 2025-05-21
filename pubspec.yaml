@@ -94,6 +94,17 @@ flutter:
     - graphics/profile posts/post7.jpg
     - graphics/profile posts/post8.jpg
     - graphics/profile posts/post9.jpg
+    - graphics/icons/icon1.jpg
+    - graphics/icons/icon2.jpg
+    - graphics/icons/icon3.jpg
+    - graphics/icons/icon4.jpg
+    - graphics/icons/icon5.jpg
+    - graphics/icons/icon6.jpg
+    - graphics/icons/icon7.jpg
+    - graphics/icons/icon8.jpg
+    - graphics/icons/icon9.jpg
+    - graphics/icons/icon10.jpg
+    - graphics/icons/icon11.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
