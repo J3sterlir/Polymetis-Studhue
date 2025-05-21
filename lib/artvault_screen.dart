@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lucide/flutter_lucide.dart';
 
 void main() {
   runApp(const MyApp());
@@ -147,43 +148,44 @@ class _ArtVaultState extends State<ArtVault> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        child: Container(
-          width: double.infinity,
-          height: 60,
-          color: Colors.white,
+      bottomNavigationBar: Container(
+          height: 70,
+          decoration: const BoxDecoration(
+            border: Border(top: BorderSide(color: Colors.grey, width: 0.5)),
+            color: Colors.white,
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               IconButton(
-                icon: const Icon(Icons.home),
+                icon: const Icon(Icons.home_outlined),
                 onPressed: () {
-                  Navigator.pushNamed(context, "/home");
+                  Navigator.pushNamed(context, '/home');
                 },
               ),
               IconButton(
-                icon: const Icon(Icons.search),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: const Icon(Icons.add_box_outlined),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: const Icon(Icons.developer_board_rounded),
+                icon: const Icon(Icons.push_pin_outlined),
                 onPressed: () {
-                  Navigator.pushNamed(context, "/vault");
+                  Navigator.pushNamed(context, '/pinboards');
                 },
               ),
               IconButton(
-                icon: const Icon(Icons.person_outline),
+                icon: const Icon(Icons.add),
+                onPressed: () {},
+              ),
+              IconButton(icon: const Icon(LucideIcons.vault),
+                  color: const Color.fromRGBO(20, 193, 225, 100),
+                  onPressed: () {
+                Navigator.pushNamed(context, '/vault');
+              }),
+              IconButton(
+                icon: const Icon(Icons.person_outline), // Using Material icon as fallback
                 onPressed: () {
-                  Navigator.pushNamed(context, "/profile");
+                  Navigator.pushNamed(context, '/profile');
                 },
               ),
             ],
           ),
-        ),
       ),
     );
   }

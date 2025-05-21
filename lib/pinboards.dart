@@ -74,7 +74,9 @@ class PinboardsScreen extends StatelessWidget {
                       ),
                       IconButton(
                         icon: const Icon(Icons.notifications_none_outlined),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/notifications');
+                        },
                       ),
                     ],
                   ),

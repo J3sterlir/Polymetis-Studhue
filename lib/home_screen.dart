@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lucide/flutter_lucide.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,11 +17,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const HomeScreen(),
-      // Add this routes configuration
       routes: {
-        '/notifications': (context) => const Placeholder(), // Replace with your NotificationScreen
+        '/notifications': (context) => const Placeholder(),
         '/vault': (context) => const Placeholder(),
         '/profile': (context) => const Placeholder(),
+        '/pinboards': (context) => const Placeholder(),
       },
     );
   }
@@ -58,7 +59,6 @@ class HomeScreenState extends State<HomeScreen> {
             icon: const Icon(Icons.search),
             onPressed: _toggleSearchBar,
           ),
-          // Add this notification icon button
           IconButton(
             icon: const Icon(Icons.notifications_none),
             onPressed: () {
@@ -67,96 +67,83 @@ class HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: Stack(
+      body: ListView(
+        padding: const EdgeInsets.only(bottom: 70), // space for nav bar
         children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 70), // space for nav bar
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: [
-                _buildPost(
-                  username: 'Joerizzle',
-                  profession: 'Stained Glass Artist',
-                  isVerified: true,
-                  verifiedOffset: 128,
-                  postImagePath: 'graphics/feed posts/fpost4.jpg',
-                  iconPath: 'graphics/icons/icon3.jpg',
-                ),
-                _buildPost(
-                  username: 'BIBIMBAP',
-                  profession: 'Digital Artist',
-                  isVerified: true,
-                  verifiedOffset: 134,
-                  postImagePath: 'graphics/feed posts/fpost1.jpg',
-                  iconPath: 'graphics/icons/icon11.jpg',
-                ),
-                _buildPost(
-                  username: 'Mona_Liz',
-                  profession: 'Traditional Painter',
-                  isVerified: true,
-                  verifiedOffset: 130,
-                  postImagePath: 'graphics/feed posts/fpost2.jpg',
-                  iconPath: 'graphics/icons/icon7.jpg',
-                ),
-                _buildPost(
-                  username: 'Dreamweaver',
-                  profession: 'Crochet Artist',
-                  isVerified: true,
-                  verifiedOffset: 128,
-                  postImagePath: 'graphics/feed posts/fpost3.jpg',
-                  iconPath: 'graphics/icons/icon9.jpg',
-                ),
-              ],
-            ),
+          _buildPost(
+            username: 'Joerizzle',
+            profession: 'Stained Glass Artist',
+            isVerified: true,
+            verifiedOffset: 128,
+            postImagePath: 'graphics/feed posts/fpost4.jpg',
+            iconPath: 'graphics/icons/icon3.jpg',
           ),
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: Container(
-              height: 60,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
-                    blurRadius: 10,
-                    offset: const Offset(0, -2),
-                  ),
-                ],
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.home),
-                    onPressed: () {},
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.search),
-                    onPressed: _toggleSearchBar,
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.add_box_outlined),
-                    onPressed: () {},
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.developer_board_rounded),
-                    onPressed: () {
-                      Navigator.pushNamed(context, "/vault");
-                    },
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.person_outline),
-                    onPressed: () {
-                      Navigator.pushNamed(context, "/profile");
-                    },
-                  ),
-                ],
-              ),
-            ),
+          _buildPost(
+            username: 'BIBIMBAP',
+            profession: 'Digital Artist',
+            isVerified: true,
+            verifiedOffset: 134,
+            postImagePath: 'graphics/feed posts/fpost1.jpg',
+            iconPath: 'graphics/icons/icon11.jpg',
+          ),
+          _buildPost(
+            username: 'Mona_Liz',
+            profession: 'Traditional Painter',
+            isVerified: true,
+            verifiedOffset: 130,
+            postImagePath: 'graphics/feed posts/fpost2.jpg',
+            iconPath: 'graphics/icons/icon7.jpg',
+          ),
+          _buildPost(
+            username: 'Dreamweaver',
+            profession: 'Crochet Artist',
+            isVerified: true,
+            verifiedOffset: 128,
+            postImagePath: 'graphics/feed posts/fpost3.jpg',
+            iconPath: 'graphics/icons/icon9.jpg',
           ),
         ],
+      ),
+      bottomNavigationBar: Container(
+        height: 70,
+        decoration: const BoxDecoration(
+          border: Border(top: BorderSide(color: Colors.grey, width: 0.5)),
+          color: Colors.white,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              icon: const Icon(Icons.home_outlined),
+              color: const Color.fromRGBO(20, 193, 225, 100),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+                );
+              },
+            ),
+            IconButton(
+              icon: const Icon(Icons.push_pin_outlined),
+              onPressed: () {
+                Navigator.pushNamed(context, '/pinboards');
+              },
+            ),
+            IconButton(
+              icon: const Icon(Icons.add),
+              onPressed: () {},
+            ),
+            IconButton(icon: const Icon(LucideIcons.vault), onPressed: () {
+              Navigator.pushNamed(context, '/vault');
+            }),
+            IconButton(
+              icon: const Icon(Icons.person_outline), // Using Material icon as fallback
+              onPressed: () {
+                Navigator.pushNamed(context, '/profile');
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -197,8 +184,9 @@ class HomeScreenState extends State<HomeScreen> {
                             'graphics/Verified Icon.png',
                             width: 13,
                             height: 12,
-                            fit: BoxFit.contain, // ensures the aspect ratio is preserved
-                          ),                        ],
+                            fit: BoxFit.contain,
+                          ),
+                        ],
                       ],
                     ),
                     Text(

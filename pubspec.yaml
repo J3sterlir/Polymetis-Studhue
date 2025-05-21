@@ -23,6 +23,7 @@ flutter:
   assets:
     - graphics/Background.png
     - graphics/Logo 2 A.png
+    - graphics/Logo 2 B.png
     - graphics/Logo B.png
     - graphics/Logo C.png
     - graphics/back_button.png
