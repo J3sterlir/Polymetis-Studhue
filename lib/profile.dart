@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
-import 'home_screen.dart';
-import 'pinboards.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
-import 'package:tdesign_flutter/tdesign_flutter.dart';
+//import 'home_screen.dart';
+//import 'pinboards.dart';
+//import 'package:tdesign_flutter/tdesign_flutter.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-
     final List<String> postImages = [
-    'graphics/profile posts/post1.jpg',
-    'graphics/profile posts/post2.jpg',
-    'graphics/profile posts/post3.jpg',
-    'graphics/profile posts/post4.jpg',
-    'graphics/profile posts/post5.jpg',
-    'graphics/profile posts/post6.jpg',
-    'graphics/profile posts/post7.jpg',
-    'graphics/profile posts/post8.jpg',
-    'graphics/profile posts/post9.jpg',
-  ];
+      'graphics/profile posts/post1.jpg',
+      'graphics/profile posts/post2.jpg',
+      'graphics/profile posts/post3.jpg',
+      'graphics/profile posts/post4.jpg',
+      'graphics/profile posts/post5.jpg',
+      'graphics/profile posts/post6.jpg',
+      'graphics/profile posts/post7.jpg',
+      'graphics/profile posts/post8.jpg',
+      'graphics/profile posts/post9.jpg',
+    ];
 
     return DefaultTabController(
       length: 2, // Posts and Products tabs
@@ -133,19 +132,21 @@ class ProfileScreen extends StatelessWidget {
                     // Posts Tab
                     GridView.builder(
                       padding: const EdgeInsets.all(10),
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        crossAxisSpacing: 5,
-                        mainAxisSpacing: 5,
-                      ),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3,
+                            crossAxisSpacing: 5,
+                            mainAxisSpacing: 5,
+                          ),
                       itemCount: postImages.length,
-                      itemBuilder: (context, index) => ClipRRect(
-                        borderRadius: BorderRadius.circular(8),
-                        child: Image.asset(
-                          postImages[index],
-                          fit: BoxFit.cover,
-                        ),
-                      ),
+                      itemBuilder:
+                          (context, index) => ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child: Image.asset(
+                              postImages[index],
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                     ),
 
                     // Products Tab
@@ -167,23 +168,25 @@ class ProfileScreen extends StatelessWidget {
               children: [
                 IconButton(
                   icon: const Icon(Icons.home),
-                  onPressed: () {Navigator.pushNamed(context, "/home");},
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/home");
+                  },
                 ),
-                IconButton(
-                  icon: const Icon(Icons.search),
-                  onPressed: () {},
-                ),
+                IconButton(icon: const Icon(Icons.search), onPressed: () {}),
                 IconButton(
                   icon: const Icon(Icons.add_box_outlined),
                   onPressed: () {},
                 ),
                 IconButton(
                   icon: const Icon(Icons.developer_board_rounded),
-                  onPressed: () {Navigator.pushNamed(context, "/vault");},
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/vault");
+                  },
                 ),
                 IconButton(
                   icon: const Icon(Icons.person_outline),
-                  onPressed: () {},
+                  onPressed: () {Navigator.pushNamed(context, "/profile");
+                  },
                 ),
               ],
             ),
