@@ -34,11 +34,14 @@ class _ArtVaultState extends State<ArtVault> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        title: const TopBar(),
-        automaticallyImplyLeading: false,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(65), // Set exact height for your banner
+        child: AppBar(
+          backgroundColor: const Color(0xff14c1e1), // Set the blue color here
+          elevation: 0,
+          title: const TopBar(),
+          automaticallyImplyLeading: false,
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -388,65 +391,44 @@ class TopBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: const Color(0xff14c1e1),
-      child: SizedBox(
-        width: double.infinity,
-        height: 76,
-        child: Stack(
-          children: [
-            Positioned(
-              left: 0,
-              width: double.infinity,
-              top: 0,
-              height: 76,
-              child: Container(
-                decoration: const BoxDecoration(
-                  color: Color(0xff14c1e1),
-                ),
-                child: Stack(
-                  children: [
-                    Positioned(
-                      top: 15,
-                      left: 0,
-                      child: IconButton(
-                        icon: const Icon(Icons.arrow_back_rounded, size: 30),
-                        onPressed: () {
-                          Navigator.pushNamed(context, "/homescreen");
-                        },
-                      ),
-                    ),
-                    const Positioned(
-                      left: 39,
-                      top: 27,
-                      child: Text(
-                        'Art Vault',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Color(0xff000000),
-                          fontFamily: 'Inter-Bold',
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    const Positioned(
-                      left: 330,
-                      top: 30,
-                      child: Text(
-                        'Edit',
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Color(0xff000000),
-                          fontFamily: 'Inter-Regular',
-                        ),
-                      ),
-                    ),
-                  ],
+    return SizedBox(
+      height: 76, // Match the AppBar height
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Row(
+            children: [
+              IconButton(
+                icon: const Icon(Icons.arrow_back_rounded, size: 30),
+                onPressed: () {
+                  Navigator.pushNamed(context, "/home");
+                },
+              ),
+              const SizedBox(width: 10),
+              const Text(
+                'Art Vault',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Color(0xff000000),
+                  fontFamily: 'Inter-Bold',
+                  fontWeight: FontWeight.bold,
                 ),
               ),
+            ],
+          ),
+          const Padding(
+            padding: EdgeInsets.only(right: 15),
+            child: Text(
+              'Edit',
+              style: TextStyle(
+                fontSize: 15,
+                color: Color(0xff000000),
+                fontFamily: 'Inter-Regular',
+              ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -16,6 +16,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const HomeScreen(),
+      // Add this routes configuration
+      routes: {
+        '/notifications': (context) => const Placeholder(), // Replace with your NotificationScreen
+        '/vault': (context) => const Placeholder(),
+        '/profile': (context) => const Placeholder(),
+      },
     );
   }
 }
@@ -51,6 +57,13 @@ class HomeScreenState extends State<HomeScreen> {
           IconButton(
             icon: const Icon(Icons.search),
             onPressed: _toggleSearchBar,
+          ),
+          // Add this notification icon button
+          IconButton(
+            icon: const Icon(Icons.notifications_none),
+            onPressed: () {
+              Navigator.pushNamed(context, '/notifications');
+            },
           ),
         ],
       ),
@@ -181,11 +194,11 @@ class HomeScreenState extends State<HomeScreen> {
                         if (isVerified) ...[
                           const SizedBox(width: 4),
                           Image.asset(
-                              'graphics/Verified Icon.png',
-                              width: 13,
-                              height: 12,
-                              fit: BoxFit.contain, // ensures the aspect ratio is preserved
-                            ),                        ],
+                            'graphics/Verified Icon.png',
+                            width: 13,
+                            height: 12,
+                            fit: BoxFit.contain, // ensures the aspect ratio is preserved
+                          ),                        ],
                       ],
                     ),
                     Text(
