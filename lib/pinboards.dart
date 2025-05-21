@@ -7,6 +7,50 @@ import 'package:tdesign_flutter/tdesign_flutter.dart';
 class PinboardsScreen extends StatelessWidget {
   const PinboardsScreen({super.key});
 
+  // Hardcoded pinboard data
+  final List<Map<String, String>> pinboards = const [
+    {
+      'name': 'Nature',
+      'coverImg': 'graphics/pinboard/pin1.jpg',
+    },
+    {
+      'name': 'Portraits',
+      'coverImg': 'graphics/pinboard/pin2.jpg',
+    },
+    {
+      'name': 'Digital Art',
+      'coverImg': 'graphics/pinboard/pin3.jpg',
+    },
+    {
+      'name': 'Sketches',
+      'coverImg': 'graphics/pinboard/pin4.jpg',
+    },
+    {
+      'name': 'Fantasy',
+      'coverImg': 'graphics/pinboard/pin5.jpg',
+    },
+    {
+      'name': 'Crochet',
+      'coverImg': 'graphics/pinboard/pin6.jpg',
+    },
+    {
+      'name': 'Realistic Art',
+      'coverImg': 'graphics/pinboard/pin7.jpg',
+    },
+    {
+      'name': 'Anime',
+      'coverImg': 'graphics/pinboard/pin8.jpg',
+    },
+    {
+      'name': 'Abstract',
+      'coverImg': 'graphics/pinboard/pin9.jpg',
+    },
+    {
+      'name': 'Glass Art',
+      'coverImg': 'graphics/pinboard/pin10.jpg',
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,20 +133,41 @@ class PinboardsScreen extends StatelessWidget {
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
                 ),
-                itemCount: 10, // number of boards
+                itemCount: pinboards.length,
                 itemBuilder: (context, index) {
+                  final board = pinboards[index];
                   return Container(
                     decoration: BoxDecoration(
-                      color: Colors.grey.shade300,
                       borderRadius: BorderRadius.circular(12),
+                      image: DecorationImage(
+                        image: AssetImage(board['coverImg']!),
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                    child: const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Text(
-                          'Board Name',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        gradient: LinearGradient(
+                          colors: [
+                            Colors.black.withOpacity(0.7),
+                            Colors.transparent
+                          ],
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Text(
+                            board['name']!,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -119,12 +184,11 @@ class PinboardsScreen extends StatelessWidget {
         height: 70,
         decoration: const BoxDecoration(
           border: Border(top: BorderSide(color: Colors.grey, width: 0.5)),
-          color: Colors.white, // Ensure background color is white
+          color: Colors.white,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            // Home Button
             IconButton(
               icon: const Icon(Icons.home_outlined),
               onPressed: () {
@@ -134,17 +198,13 @@ class PinboardsScreen extends StatelessWidget {
                 );
               },
             ),
-            // Pinboard Button (highlighted with color)
             IconButton(
               icon: const Icon(Icons.push_pin_outlined),
               color: const Color.fromRGBO(20, 193, 225, 100),
               onPressed: () {},
             ),
-            // Add Button
             IconButton(icon: const Icon(Icons.add), onPressed: () {}),
-            // Vault Button
             IconButton(icon: const Icon(LucideIcons.vault), onPressed: () {}),
-            // Profile Button
             IconButton(
               icon: const Icon(TDIcons.user),
               onPressed: () {

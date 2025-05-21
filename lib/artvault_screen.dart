@@ -28,7 +28,7 @@ class ArtVault extends StatefulWidget {
 }
 
 class _ArtVaultState extends State<ArtVault> {
-  int quantity = 1; // Initial quantity
+  int quantity = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -44,11 +44,12 @@ class _ArtVaultState extends State<ArtVault> {
         child: Column(
           children: [
             _buildCart(
-              username: 'BIBIMBAP',
+              username: 'Baching',
               productname: 'Crochet Bag',
               variation: 'small',
               quantity: quantity,
               price: 150.00,
+              iconPath: 'graphics/icons/icon2.jpg',
               imagePath: 'graphics/products/product1.jpg',
               onQuantityChanged: (newQuantity) {
                 setState(() {
@@ -57,11 +58,12 @@ class _ArtVaultState extends State<ArtVault> {
               },
             ),
             _buildCart(
-              username: 'BIBIMBAP',
+              username: 'Haizzle',
               productname: 'Clay Hippers',
               variation: 'small',
               quantity: quantity,
               price: 100.00,
+              iconPath: 'graphics/icons/icon3.jpg',
               imagePath: 'graphics/products/product2.jpg',
               onQuantityChanged: (newQuantity) {
                 setState(() {
@@ -70,11 +72,12 @@ class _ArtVaultState extends State<ArtVault> {
               },
             ),
             _buildCart(
-              username: 'BIBIMBAP',
+              username: 'Papricart',
               productname: 'Keychains',
               variation: 'Calcifier',
               quantity: quantity,
               price: 85.00,
+              iconPath: 'graphics/icons/icon4.jpg',
               imagePath: 'graphics/products/product3.jpg',
               onQuantityChanged: (newQuantity) {
                 setState(() {
@@ -83,11 +86,12 @@ class _ArtVaultState extends State<ArtVault> {
               },
             ),
             _buildCart(
-              username: 'BIBIMBAP',
+              username: 'Fufi',
               productname: 'Resin Coaster',
               variation: 'Bunny-Medium',
               quantity: quantity,
               price: 150.00,
+              iconPath: 'graphics/icons/icon5.jpg',
               imagePath: 'graphics/products/product4.jpg',
               onQuantityChanged: (newQuantity) {
                 setState(() {
@@ -96,11 +100,12 @@ class _ArtVaultState extends State<ArtVault> {
               },
             ),
             _buildCart(
-              username: 'BIBIMBAP',
+              username: 'Zeon',
               productname: 'Simple Vase',
               variation: 'small',
               quantity: quantity,
               price: 175.00,
+              iconPath: 'graphics/icons/icon6.jpg',
               imagePath: 'graphics/products/product5.jpg',
               onQuantityChanged: (newQuantity) {
                 setState(() {
@@ -109,11 +114,12 @@ class _ArtVaultState extends State<ArtVault> {
               },
             ),
             _buildCart(
-              username: 'BIBIMBAP',
+              username: 'Rizzle',
               productname: 'Bunbun Stickers',
               variation: 'Pack-A',
               quantity: quantity,
               price: 100.00,
+              iconPath: 'graphics/icons/icon7.jpg',
               imagePath: 'graphics/products/product6.jpg',
               onQuantityChanged: (newQuantity) {
                 setState(() {
@@ -122,11 +128,12 @@ class _ArtVaultState extends State<ArtVault> {
               },
             ),
             _buildCart(
-              username: 'BIBIMBAP',
+              username: 'MeiMei',
               productname: 'Butterfly Painting',
               variation: '10x10',
               quantity: quantity,
               price: 250.00,
+              iconPath: 'graphics/icons/icon10.jpg',
               imagePath: 'graphics/products/product7.jpg',
               onQuantityChanged: (newQuantity) {
                 setState(() {
@@ -147,7 +154,9 @@ class _ArtVaultState extends State<ArtVault> {
             children: [
               IconButton(
                 icon: const Icon(Icons.home),
-                onPressed: () {Navigator.pushNamed(context, "/home");},
+                onPressed: () {
+                  Navigator.pushNamed(context, "/home");
+                },
               ),
               IconButton(
                 icon: const Icon(Icons.search),
@@ -159,11 +168,15 @@ class _ArtVaultState extends State<ArtVault> {
               ),
               IconButton(
                 icon: const Icon(Icons.developer_board_rounded),
-                onPressed: () {Navigator.pushNamed(context, "/vault");},
+                onPressed: () {
+                  Navigator.pushNamed(context, "/vault");
+                },
               ),
               IconButton(
                 icon: const Icon(Icons.person_outline),
-                onPressed: () {Navigator.pushNamed(context, "/profile");},
+                onPressed: () {
+                  Navigator.pushNamed(context, "/profile");
+                },
               ),
             ],
           ),
@@ -179,6 +192,7 @@ Widget _buildCart({
   required String variation,
   required int quantity,
   required double price,
+  required String iconPath,
   required String imagePath,
   required ValueChanged<int> onQuantityChanged,
 }) {
@@ -196,41 +210,24 @@ Widget _buildCart({
               height: 42,
               child: Row(
                 children: [
-                  Container(
-                    margin: const EdgeInsets.only(left: 20),
-                    width: 25,
-                    height: 25,
-                    decoration: BoxDecoration(
-                      color: const Color(0xffd9d9d9),
-                      borderRadius: BorderRadius.circular(2),
+                  const SizedBox(width: 15),
+                  CircleAvatar(
+                    radius: 13,
+                    backgroundImage: AssetImage(iconPath),
+                  ),
+                  const SizedBox(width: 10),
+                  Text(
+                    username,
+                    style: const TextStyle(
+                      fontSize: 13,
+                      color: Color(0xff30343d),
+                      fontFamily: 'Inter-Regular',
+                      fontWeight: FontWeight.normal,
                     ),
                   ),
-                  SizedBox(width: 10),
-                  Positioned(
-                    left: 53,
-                    top: 12,
-                    child: Text(
-                      username,
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        decoration: TextDecoration.none,
-                        fontSize: 13,
-                        color: const Color(0xff30343d),
-                        fontFamily: 'Inter-Regular',
-                        fontWeight: FontWeight.normal,
-                      ),
-                      maxLines: 9999,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  SizedBox(width: 5),
-                  Positioned(
-                    left: 110,
-                    width: 4,
-                    top: 17,
-                    height: 7,
-                    child: Icon(Icons.arrow_forward_ios_rounded, size:14, color: Color(0xffea1a7f)),
-                  ),
+                  const SizedBox(width: 5),
+                  const Icon(Icons.arrow_forward_ios_rounded,
+                      size: 14, color: Color(0xffea1a7f)),
                 ],
               ),
             ),
@@ -255,82 +252,59 @@ Widget _buildCart({
             height: 80,
             child: Stack(
               children: [
-                Positioned(
-                  left: 0,
+                Container(
                   width: 393,
-                  top: 0,
                   height: 80,
-                  child: Container(
-                    width: 393,
-                    height: 80,
-                    decoration: BoxDecoration(
-                      color: const Color(0xfffffdfd),
-                    ),
-                  ),
+                  color: const Color(0xfffffdfd),
                 ),
                 Positioned(
                   left: 23,
-                  width: 17,
                   top: 32,
-                  height: 17,
                   child: Container(
                     width: 17,
                     height: 17,
                     decoration: BoxDecoration(
-                      border: Border.all(color: const Color(0xffbdbec0), width: 1),
+                      border: Border.all(color: Color(0xffbdbec0), width: 1),
                       borderRadius: BorderRadius.circular(2),
                     ),
                   ),
                 ),
                 Positioned(
                   left: 53,
-                  width: 65,
                   top: 7,
-                  height: 66.182,
-                  child: SizedBox(
-                    width: 65,
-                    height: 66.182,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(5),
-                      child: Image.asset(
-                        imagePath,
-                        fit: BoxFit.cover,
-                      ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(5),
+                    child: Image.asset(
+                      imagePath,
+                      width: 65,
+                      height: 66.182,
+                      fit: BoxFit.cover,
                     ),
-                   ),
-                 ),
+                  ),
+                ),
                 Positioned(
                   left: 131,
                   top: 9,
                   child: Text(
                     productname,
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      decoration: TextDecoration.none,
+                    style: const TextStyle(
                       fontSize: 14,
-                      color: const Color(0xff7d7e7f),
+                      color: Color(0xff7d7e7f),
                       fontFamily: 'Inter-Regular',
-                      fontWeight: FontWeight.normal,
                     ),
-                    maxLines: 9999,
-                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
                 Positioned(
                   left: 294,
                   top: 49,
                   child: Text(
-                    '₱${price.toString()}',
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      decoration: TextDecoration.none,
+                    '₱${price.toStringAsFixed(2)}',
+                    style: const TextStyle(
                       fontSize: 18,
-                      color: const Color(0xffea1a7f),
+                      color: Color(0xffea1a7f),
                       fontFamily: 'Inter-Bold',
                       fontWeight: FontWeight.bold,
                     ),
-                    maxLines: 9999,
-                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
                 QuantitySelector(
@@ -362,61 +336,51 @@ class QuantitySelector extends StatelessWidget {
       left: 131,
       top: 30,
       child: Container(
-      decoration: BoxDecoration(
-        border: Border.all(color: Color(0xffd9d9d9), width: 1.5),
-        borderRadius: BorderRadius.circular(5),
-      ),
-      child: Row(
-        children: [
-          // Minus button compartment
-          GestureDetector(
-            onTap: () {
-              if (quantity > 1) {
-                onQuantityChanged(quantity - 1);
-              }
-            },
-            child: SizedBox(
-              width: 17,
-              height: 17,
-              child: Icon(
-                Icons.remove,
-                size: 14,
+        decoration: BoxDecoration(
+          border: Border.all(color: Color(0xffd9d9d9), width: 1.5),
+          borderRadius: BorderRadius.circular(5),
+        ),
+        child: Row(
+          children: [
+            GestureDetector(
+              onTap: () {
+                if (quantity > 1) {
+                  onQuantityChanged(quantity - 1);
+                }
+              },
+              child: const SizedBox(
+                width: 17,
+                height: 17,
+                child: Icon(Icons.remove, size: 14),
               ),
             ),
-          ),
-          // Quantity compartment
-          Container(
-            width: 17,
-            height: 17,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              border: Border.all(color: Color(0xffd9d9d9), width: 1),
-            ),
-            child: Text(
-              quantity.toString(),
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 10),
-            ),
-          ),
-          // Add button compartment
-          GestureDetector(
-            onTap: () {
-              onQuantityChanged(quantity + 1);
-            },
-            child: SizedBox(
+            Container(
               width: 17,
               height: 17,
-              child: Icon(
-                Icons.add,
-                size: 14,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                border: Border.all(color: Color(0xffd9d9d9), width: 1),
+              ),
+              child: Text(
+                quantity.toString(),
+                style: const TextStyle(fontSize: 10),
               ),
             ),
-          ),
-        ],
+            GestureDetector(
+              onTap: () {
+                onQuantityChanged(quantity + 1);
+              },
+              child: const SizedBox(
+                width: 17,
+                height: 17,
+                child: Icon(Icons.add, size: 14),
+              ),
+            ),
+          ],
+        ),
       ),
-    ),
-  );
- }
+    );
+  }
 }
 
 class TopBar extends StatelessWidget {
@@ -425,7 +389,7 @@ class TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xff14c1e1),
+      color: const Color(0xff14c1e1),
       child: SizedBox(
         width: double.infinity,
         height: 76,
@@ -437,10 +401,8 @@ class TopBar extends StatelessWidget {
               top: 0,
               height: 76,
               child: Container(
-                width: double.infinity,
-                height: 76,
-                decoration: BoxDecoration(
-                  color: const Color(0xff14c1e1),
+                decoration: const BoxDecoration(
+                  color: Color(0xff14c1e1),
                 ),
                 child: Stack(
                   children: [
@@ -448,47 +410,35 @@ class TopBar extends StatelessWidget {
                       top: 15,
                       left: 0,
                       child: IconButton(
-                        icon: Icon(Icons.arrow_back_rounded, size: 30),
+                        icon: const Icon(Icons.arrow_back_rounded, size: 30),
                         onPressed: () {
                           Navigator.pushNamed(context, "/homescreen");
                         },
                       ),
                     ),
-                    Positioned(
+                    const Positioned(
                       left: 39,
-                      width: 122,
                       top: 27,
-                      height: 24,
                       child: Text(
                         'Art Vault',
-                        textAlign: TextAlign.center,
                         style: TextStyle(
-                          decoration: TextDecoration.none,
                           fontSize: 20,
-                          color: const Color(0xff000000),
+                          color: Color(0xff000000),
                           fontFamily: 'Inter-Bold',
                           fontWeight: FontWeight.bold,
                         ),
-                        maxLines: 9999,
-                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                    Positioned(
+                    const Positioned(
                       left: 330,
-                      width: 29,
                       top: 30,
                       child: Text(
                         'Edit',
-                        textAlign: TextAlign.left,
                         style: TextStyle(
-                          decoration: TextDecoration.none,
                           fontSize: 15,
-                          color: const Color(0xff000000),
+                          color: Color(0xff000000),
                           fontFamily: 'Inter-Regular',
-                          fontWeight: FontWeight.normal,
                         ),
-                        maxLines: 9999,
-                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                   ],
