@@ -105,6 +105,13 @@ flutter:
     - graphics/icons/icon9.jpg
     - graphics/icons/icon10.jpg
     - graphics/icons/icon11.jpg
+    - graphics/products/product1.jpg
+    - graphics/products/product2.jpg
+    - graphics/products/product3.jpg
+    - graphics/products/product4.jpg
+    - graphics/products/product5.jpg
+    - graphics/products/product6.jpg
+    - graphics/products/product7.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
