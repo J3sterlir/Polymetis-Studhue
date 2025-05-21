@@ -180,8 +180,12 @@ class HomeScreenState extends State<HomeScreen> {
                         ),
                         if (isVerified) ...[
                           const SizedBox(width: 4),
-                          Image.asset('graphics/Verified Icon.png', width: 13, height: 12,),
-                        ],
+                          Image.asset(
+                              'graphics/Verified Icon.png',
+                              width: 13,
+                              height: 12,
+                              fit: BoxFit.contain, // ensures the aspect ratio is preserved
+                            ),                        ],
                       ],
                     ),
                     Text(
